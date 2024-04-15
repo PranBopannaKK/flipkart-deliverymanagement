@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retrieved order data</title>
+    <style>
+        body {
+            background-color: #beffad;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background-color: azure;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #000000;
+        }
+        
+        th {
+            background-color: #d4ff8f;
+            color: black;
+        }
+        .home {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: #29cdff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+        }
+        .home:hover {
+        background-color: #0076c5;
+        }
+    </style>
+</head>
+<body>
+    <h1><center>Retrieved order data</center></h1>
+    {% if  data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order date</th>
+                    <th>Expected Delivery date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data %}
+                    <tr>
+                        <td>{{ data.OrderID }}</td>
+                        <td>{{ data.OrderDate }}</td>
+                        <td>{{ data.DeliveryDate }}</td> 
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data found.</p>
+    {% endif %}
+</body>
+</html>

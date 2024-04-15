@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>status data</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #beffad;
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #000000;
+        }
+        
+        th {
+            background-color: #d4ff8f;
+            color: black;
+        }
+        .home {
+        background-color: #29cdff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+        }
+        .home:hover {
+        background-color: #0076c5;
+    }
+    </style>
+</head>
+<body>
+    <h1><center>Retrieved status data</center></h1>
+    {% if dstatus %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Agent ID</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for status in dstatus %}
+                    <tr>
+                        <td>{{ status.OrderID }}</td>
+                        <td>{{ status.AgentID }}</td>
+                        <td>{{ status.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>failed to retireve data</p>
+    {% endif %}
+    <br><br><center><a href="/LManager" class="home">Go to home </a></center>
+</body>
+</html>

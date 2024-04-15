@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retrieved Assignments</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #beffad;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+        table {
+            background-color: rgb(255, 255, 255);
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #000000;
+        }
+        
+        th {
+            background-color: #d4ff8f;
+            color: black;
+        }
+        .home {
+      background-color: #29cdff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      text-decoration: none;
+      text-decoration: none;
+    }
+    .home:hover {
+      background-color: #0076c5;
+    }
+    </style>
+</head>
+<body>
+    <h1><center>Retrieved Assignments</center></h1>
+    {% if assignments %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer ID</th>
+                    <th>Name</th>
+                    <th>Contact No</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment, customer in assignments %}
+                    <tr>
+                        <td>{{ assignment.OrderID }}</td>
+                        <td>{{ assignment.CustomerID }}</td>
+                        <td>{{ customer.Name }}</td>
+                        <td>{{ customer.Contact }}</td>
+                        <td>{{ customer.Location }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No assignments found for the provided ID.</p>
+    {% endif %}
+    <br><br><center><a href="/Agent" class="home">Go to home </a></center>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #beffad;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    form {
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      margin: 0 auto;
+      filter: blur(0.1px);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #000000;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #000000;
+    }
+    input, textarea {
+      width: 93%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
+    }
+    input:focus, textarea:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+    textarea {
+      height: 120px;
+    }
+    .submit-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+    .submit-button:hover {
+      background-color: #3e8e41;
+    }
+    .home {
+      background-color: #29cdff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      text-decoration: none;
+    }
+    .home:hover {
+      background-color: #0076c5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Update delivery status</h1>
+  <form action="/Update" method="post">
+    {% include "message.html" %}
+    <center><label for="Id">Enter OrderID</label>
+    <input type="text" id="Id" name="Id" required><br><br>
+    <label for="status">Enter status(delivered/Undelivered)</label>
+    <input type="text" id="status" name="status" required><br><br>
+    <input type="submit" value="Submit" class="submit-button"><br><br>
+    <a href="/Agent" class="home">Go to home </a>
+  </form>
+</center>
+</body>
+</html>
